@@ -1,5 +1,6 @@
-import { A, createRouteData, RouteDataArgs, useRouteData } from 'solid-start';
-import { createEffect, Suspense } from 'solid-js';
+import { RouteDataArgs, createRouteData, useIsRouting } from 'solid-start';
+import { Show } from 'solid-js';
+import { BlogItemPage } from '~/components/BlogItemPage';
 
 function getStolidURL(path = '') {
 	return `${import.meta.env.VITE_SOLID_URL || 'http://localhost:3000'}${path}`;
@@ -29,7 +30,8 @@ export async function fetchSolidAPI(path: string, urlParamsObject = {}, options 
 	return data;
 }
 
-export function routeData({ params }: RouteDataArgs) {
+export function routeData(props: RouteDataArgs) {
+	const { params } = props;
 	return createRouteData(async (key) => {
 		try {
 			const path = `/api/blog/${key[1]}`;
@@ -38,33 +40,16 @@ export function routeData({ params }: RouteDataArgs) {
 			console.error(error);
 		}
 	}, {
-		key: () => ["blog", params.slug],
-	})
+		key: () => ["blog", params.slug]
+	});
 }
 
-
 export default function Page() {
-	const data = useRouteData<typeof routeData>();
-
-	createEffect(() => {
-		console.log('data() = ', data());
-	});
-
-	createEffect(() => {
-		console.log('data.state = ', data.state);
-	});
-
-	createEffect(() => {
-		console.log('data.loading = ', data.loading);
-	});
+	const isRouting = useIsRouting();
 
 	return (
-		<div>
-			<div>
-				<Suspense fallback={<div>Data loading...</div>}>
-					<p>slug: {data()?.slug}</p>
-				</Suspense>
-			</div>
-		</div>
+		<Show when={!isRouting()} fallback={<div></div>}>
+			<BlogItemPage />
+		</Show>
 	);
 }
