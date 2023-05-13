@@ -1,9 +1,9 @@
 {
   "name": "solid-test",
   "scripts": {
-    "dev": "solid-start dev",
-    "build": "solid-start build",
-    "start": "solid-start start"
+    "dev": "../node_modules/.bin/solid-start dev",
+    "build": "../node_modules/.bin/solid-start build",
+    "start": "../node_modules/.bin/solid-start start"
   },
   "type": "module",
   "devDependencies": {

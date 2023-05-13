@@ -2377,7 +2377,7 @@ sirv@^2.0.2, sirv@^2.0.3:
     mrmime "^1.0.0"
     totalist "^3.0.0"
 
-solid-js@1.7.5:
+solid-js@^1.7.2:
   version "1.7.5"
   resolved "https://registry.yarnpkg.com/solid-js/-/solid-js-1.7.5.tgz#2ef7834c6c8eef9d1b46c25b1c51da4c67492a13"
   integrity sha512-GfJ8na1e9FG1oAF5xC24BM+ATLym0sfH+ZblkbBFpueYdq3fWAoA5Ve+jGeIeLI7jmMGfa0rUaKruszNm2sH8w==
@@ -2408,7 +2408,7 @@ solid-start-node@^0.2.19:
     sirv "^2.0.2"
     terser "^5.16.1"
 
-solid-start@0.2.26:
+solid-start@^0.2.26:
   version "0.2.26"
   resolved "https://registry.yarnpkg.com/solid-start/-/solid-start-0.2.26.tgz#9f84a2fffcec290361013e0539bc52a7bfc5e1d3"
   integrity sha512-kne2HZlnSMzsirdnvNs1CsDqBl0L0uvKKt1t4de1CH7JIngyqoMcER97jTE0Ejr84KknANaKAdvJAzZcL7Ueng==
